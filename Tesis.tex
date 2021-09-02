@@ -1,0 +1,128 @@
+%% ----------------------------------------------------------------
+%% Tesis.tex -- Archivo principal
+%% ---------------------------------------------------------------- 
+
+% Asignar el documento
+\documentclass[letterpaper, 12pt, twoside]{TesisUNAM}  % Usa el tipo de documento "ThesisUNAM"
+
+% Include any extra LaTeX packages required
+\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
+
+\title{Título de la tesis}
+\author{Autor de la tesis}
+\modalidad{T E S I S}
+\tituloprofesional{Licenciada en Matemáticas Aplicadas}
+\facultad{Facultad de Ciencias}
+\escudofacultad{EscudoFCiencias}
+\supervisor{Dr. Who}
+
+\begin{document}
+\frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
+\maketitle
+
+% Si numeración ni encabezados
+\pagestyle{empty}
+
+% Dedicatoria
+\dedicatory{For/Dedicated to/To my\ldots}
+
+% Agradecimientos
+\acknowledgements{
+ Los agradecimientos van aquí\ldots
+ 
+ Para quitar los marcos alrededor de la página comentar la línea 117 en TesisUNAM.cls que dice \textit{$\backslash$usepackage\{showframe\}}.
+}
+
+% Inicia el contedio
+\pagestyle{fancy} 
+
+%% ----------------------------------------------------------------
+\tableofcontents  % Write out the Table of Contents
+
+%% ----------------------------------------------------------------
+\listoffigures  % Write out the List of Figures
+
+%% ----------------------------------------------------------------
+\listoftables  % Write out the List of Tables
+
+%% ----------------------------------------------------------------
+\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
+\clearpage  % Start a new page
+\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
+{
+% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+
+}
+
+%% ----------------------------------------------------------------
+\clearpage  % Start a new page
+\listofconstants{lrcl}  % Include a list of Physical Constants (a four column table)
+{
+% Constant Name & Symbol & = & Constant Value (with units) \\
+Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
+
+}
+
+%% ----------------------------------------------------------------
+\clearpage  %Start a new page
+\listofnomenclature{lll}  % Include a list of Symbols (a three column table)
+{
+% symbol & name & unit \\
+$a$ & distance & m \\
+$P$ & power & W (Js$^{-1}$) \\
+& & \\ % Gap to separate the Roman symbols from the Greek
+$\omega$ & angular frequency & rads$^{-1}$ \\
+}
+
+
+
+\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
+\pagestyle{fancy}  % Return the page headers back to the "fancy" style
+%\doublespacing  % Set the line spacing to 2.0, as requested by the guide notes
+\singlespacing
+
+
+\setchapterhead
+
+% Include the chapters of the thesis, as separate files
+% Just uncomment the lines as you write the chapters
+
+\input{./Capitulos/Capitulo1} % Introduction
+
+%\input{./Chapters/Chapter2} % Background Theory 
+
+%\input{./Chapters/Chapter3} % Experimental Setup
+
+%\input{./Chapters/Chapter4} % Experiment 1
+
+%\input{./Chapters/Chapter5} % Experiment 2
+
+%\input{./Chapters/Chapter6} % Results and Discussion
+
+%\input{./Chapters/Chapter7} % Conclusion
+
+%% ----------------------------------------------------------------
+% Now begin the Appendices, including them as separate files
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+
+\input{./Apendices/ApendiceA}	% Appendix Title
+
+%\input{./Appendices/AppendixB} % Appendix Title
+
+%\input{./Appendices/AppendixC} % Appendix Title
+
+\addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
+\backmatter
+
+%% ----------------------------------------------------------------
+\label{Bibliography}
+\setstretch{1} % Less spacing is accepted for the items in the bibliography.
+\lhead{\emph{Bibliography}}  % Change the left side page header to "Bibliography"
+\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliography{Bibliography}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
+
+\end{document}
